@@ -26,5 +26,6 @@ post '/television_show' do
   starting_year = params['starting_year']
   synopsis = params['synopsis']
   genre = params['genre']
-  CSV.open("television_shows.csv", "a+")
+  CSV.open("television_shows.csv", "a+") do |csv|
+    csv << [title, network, starting_year, synopsis, genre]
 end

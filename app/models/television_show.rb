@@ -8,5 +8,5 @@ class TelevisionShow
     @synopsis = synopsis
     @genre = genre
   end
-  
+
 end

@@ -1,1 +1,9 @@
 <h1>List of Shows</h1>
+
+<table>
+  <thead>
+  </thead>
+  <% @television_shows.each do |show| %>
+  <tr> <%= show.summary %> </tr>
+  <% end %>
+</table>

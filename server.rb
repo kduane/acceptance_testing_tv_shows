@@ -9,8 +9,7 @@ get '/television_shows' do
   @television_shows = []
 
   CSV.foreach("television-shows.csv", :headers => true, :col_sep => ',') do |row|
-    @television_shows << Television_Show.new(:title => row['title'], :network => row['network'], :starting_year => row['starting
-      '], :synopsis => row['synopsis'], :genre => row['genre'])
+    @television_shows << TelevisionShow.new(row['title'], row['network'], row['starting_year'], row['synopsis'], row['genre'])
   end
 
   erb :index
@@ -26,7 +25,9 @@ post '/television_show' do
   starting_year = params['starting_year']
   synopsis = params['synopsis']
   genre = params['genre']
-  CSV.open("television_shows.csv", "a+") do |csv|
+  # binding.pry
+  CSV.open("television-shows.csv", "a+") do |csv|
     csv << [title, network, starting_year, synopsis, genre]
   end
+  redirect '/television_shows'
 end

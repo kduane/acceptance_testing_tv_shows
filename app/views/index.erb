@@ -4,8 +4,10 @@
   <thead>
   </thead>
   <% @television_shows.each do |show| %>
-  <tr> <%= show.summary %> </tr>
-  <% end %>
+  <tr> <%= show.summary %>
+  <% end %></tr>
 </table>
 
-<form
+<p>
+  Don't see your favorite show?  Add it <a href="television_shows/new"> here: </a>
+</p>

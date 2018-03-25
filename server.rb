@@ -8,7 +8,7 @@ set :views, File.join(File.dirname(__FILE__), "app/views")
 get '/television_shows' do
   @television_shows = []
 
-  CSV.foreach("television_shows.csv", :headers => true, :col_sep => ',') do |row|
+  CSV.foreach("television-shows.csv", :headers => true, :col_sep => ',') do |row|
     @television_shows << Television_Show.new(:title => row['title'], :network => row['network'], :starting_year => row['starting
       '], :synopsis => row['synopsis'], :genre => row['genre'])
   end

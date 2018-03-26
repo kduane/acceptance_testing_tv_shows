@@ -7,7 +7,7 @@ require "sinatra/reloader" if development?
 
 set :bind, '0.0.0.0'  # bind to all interfaces
 set :views, File.join(File.dirname(__FILE__), "app/views")
-se Rack::Session::Cookie, {
+use Rack::Session::Cookie, {
   secret: "keep_it_secret_keep_it_safe",
 }
 
@@ -28,7 +28,7 @@ end
 post '/television_show' do
   # binding.pry
   if params.values.any?{|i| i.empty?}
-    @message = "Please fill in all required fields"
+    session[:message] = "Please fill in all required fields"
     redirect '/television_shows/new'
   else
     title = params[:title]

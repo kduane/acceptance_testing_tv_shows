@@ -1,11 +1,20 @@
 <h1>List of Shows</h1>
 
 <table>
-  <thead>
-  </thead>
+  <tr>
+    <th>Title (network)</th>
+    <th>Starting Year</th>
+    <th>Synopsis </th>
+    <th>Genre </th>
+  </tr>
   <% @television_shows.each do |show| %>
-  <tr> <%= show.summary %>
-  <% end %></tr>
+  <tr>
+    <td><%= "#{show.title} (#{show.network})"%></td>
+    <td><%= show.starting_year %> </td>
+    <td><%= show.synopsis %> </td>
+    <td><%= show.genre %> </td>
+  </tr>
+  <% end %>
 </table>
 
 <p>
